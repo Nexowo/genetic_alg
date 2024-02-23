@@ -9,7 +9,7 @@ impl Individu {
     fn calc_val(&mut self) {
         let mut value : u64 = 0;
         for i in self.genes.len()..0 {
-            value+=2_u64.pow(i-1);
+            value+=2_u64.pow((i-1) as u32);
         }
         self.value = value;
     }
@@ -17,7 +17,7 @@ impl Individu {
     fn new(len : u32) -> Self {
         let mut genes = Vec::new();
 
-        for i in 0..len {
+        for _ in 0..len {
             genes.push(rand::thread_rng().gen_range(0..2));
         }
 
