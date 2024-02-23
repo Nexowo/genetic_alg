@@ -8,8 +8,9 @@ struct Individu {
 impl Individu {
     fn calc_val(&mut self) {
         let mut value : u64 = 0;
-        for i in self.genes.len()..0 {
-            value+=2_u64.pow((i-1) as u32);
+        let j : usize = self.genes.len();
+        for i in 0..j {
+            value+=(self.genes[j-i-1] as u64)*2_u64.pow(i as u32);
         }
         self.value = value;
     }
@@ -35,6 +36,10 @@ impl Individu {
             print!("{}",self.genes[i])
         }
         println!(", value = {}", self.value)
+    }
+
+    fn mutation(&self, ind : Self) -> Self {
+        
     }
 }
 
