@@ -22,7 +22,7 @@ impl Individu {
             genes.push(rand::thread_rng().gen_range(0..2));
         }
 
-        let mut indiv : Individu = Individu {
+        let mut indiv = Individu {
             genes : genes,
             value : 0
         };
@@ -38,8 +38,17 @@ impl Individu {
         println!(", value = {}", self.value)
     }
 
-    fn mutation(&self, ind : Self) -> Self {
-        
+    fn mutation(&mut self, ind : &mut Individu) -> Individu {
+        let mut genes = Vec::new();
+        let mut_point = rand::thread_rng().gen_range(0..self.genes.len());
+        genes.append(self.genes[..mut_point]);
+        genes.append(ind.genes[mut_point..]);
+        let mut child = Individu {
+            genes : genes,
+            value : 0
+        };
+        child.calc_val();
+        child
     }
 }
 
