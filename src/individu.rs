@@ -60,4 +60,12 @@ impl Individu {
         }
         self.calc_val();
     }
+
+    pub fn copy(&self) -> Self {
+        let copied_ind = Individu {
+            genes : self.genes.clone(),
+            value : self.value
+        };
+        copied_ind
+    }
 }

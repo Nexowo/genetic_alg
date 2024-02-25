@@ -1,9 +1,9 @@
 mod individu;
 use crate::individu::Individu;
 fn main() {
-    let len = 8;
-    let mut ind_1 = Individu::new(len);
-    let mut ind_2 = Individu::new(len);
+    const LEN : u32 = 8;
+    let mut ind_1 = Individu::new(LEN);
+    let mut ind_2 = Individu::new(LEN);
 
     println!("Generation -----------------------");
     ind_1.print();
